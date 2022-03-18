@@ -15,6 +15,14 @@ spec:
       containers:
         - name: auth
           image: andres1997/auth
+          env:
+            # name that we use inside the pod to have access
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  # inside of our secrets we can have many key value pair
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
