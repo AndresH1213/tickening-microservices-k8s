@@ -16,6 +16,8 @@ spec:
         - name: auth
           image: andres1997/auth
           env:
+            - name: MONGO_URI
+              value: 'mongodb://auth-mongo-srv:27017/auth'
             # name that we use inside the pod to have access
             - name: JWT_KEY
               valueFrom:
